@@ -140,7 +140,14 @@ $( document ).ready(function () {
   });
 
   $("#tabs").tab();
-  var mySlider = $("#ex2").slider();
+  $("#refineSearchResult").slider().on("slide", function(obj) {
+
+    console.log(obj.value);
+
+  });
+  //var value = mySlider.slider('getValue');
+
+  //alert(value);
 });
 
 function getFormData() {

@@ -144,11 +144,37 @@ $( document ).ready(function () {
 
     console.log(obj.value);
 
+    getDataAccordingToSlider(obj.value);
+
   });
   //var value = mySlider.slider('getValue');
 
   //alert(value);
 });
+
+function getDataAccordingToSlider(value) {
+  var originCity = $("#originCity").val();
+  var destinationCity = $("#destinationCity").val();
+  var departureDate = $("#departureDate").val();
+  var minPrice = value[0];
+  var maxPrice = value[1];
+  refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
+}
+
+function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
+
+  var data = flightSearchJSON.filter(function (el) {
+    return el.OriginCity === originCity  &&
+      el.DestinationCity === destinationCity  &&
+      el.DepartureDate === departureDate &&
+      el.Price > minPrice &&
+      el.Price < maxPrice
+  });
+  console.log(data);
+
+  myFunction(data);
+
+}
 
 function getFormData() {
   var originCity = $("#originCity").val();
@@ -157,7 +183,7 @@ function getFormData() {
   getFlightInformation(originCity, destinationCity, departureDate);
 }
 
-function getFlightInformation(originCity, destinationCity, departureDate, returnDate) {
+function getFlightInformation(originCity, destinationCity, departureDate) {
 
   var data = flightSearchJSON.filter(function (el) {
     return el.OriginCity === originCity  &&
@@ -178,10 +204,3 @@ function myFunction(data) {
   $("#flightInformation").html(tempHTML);
 
 }
-
-
-
-
-
-
-

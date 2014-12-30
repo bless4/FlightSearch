@@ -140,7 +140,7 @@ $( document ).ready(function () {
   });
 
   $("#tabs").tab();
-
+  var mySlider = $("#ex2").slider();
 });
 
 function getFormData() {

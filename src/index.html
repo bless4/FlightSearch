@@ -65,17 +65,43 @@
 
         <div  class="col-sm-3">
 
-            <form role="form">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="originCity" placeholder="Origin City">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                <li class="active"><a href="#oneWay" data-toggle="tab">One Way</a></li>
+                <li><a href="#return" data-toggle="tab">Return</a></li>
+            </ul>
+
+            <div id="my-tab-content" class="tab-content">
+                <div class="tab-pane active" id="oneWay">
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="originCity" placeholder="Origin City">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="destinationCity" placeholder="DestinationCity">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="destinationCity" placeholder="DestinationCity">
+                <div class="tab-pane" id="return">
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="originCity" placeholder="Origin City">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="destinationCity" placeholder="DestinationCity">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="returnDate" placeholder="Return Date">
+                        </div>
+                    </form>
+
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
-                </div>
-            </form>
+            </div>
             <button type="submit" class="btn btn-default" id="submitSearchForm">Submit</button>
 
         </div>
@@ -92,7 +118,6 @@
 
 
 </div>
-
 
 <script src="js/flightSearch.js"></script>
 </body>

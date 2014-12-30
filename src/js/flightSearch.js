@@ -139,6 +139,8 @@ $( document ).ready(function () {
     getFormData();
   });
 
+  $("#tabs").tab();
+
 });
 
 function getFormData() {

@@ -18,6 +18,8 @@
         <div style="border: 1px solid black">
 
 
+            <% console.log(obj) %>
+
             <div class="row">
                 <h3 style="padding-left: 5%">Price <%= item.Price %></h3>
             </div>
@@ -34,8 +36,13 @@
 
                 </div>
 
-                <div  class="col-sm-4">
+                <div style="padding: 4%" class="col-sm-4">
 
+
+                    <div>Flight No : <%= item.FlightNo %></div>
+                    <div>From <%= item.OriginCity %> To <%= item.DestinationCity %></div>
+                    <div>Departure Time :<%= item.DepartTime %></div>
+                    <div>Arrive Time : <%= item.ArriveTime %></div>
 
 
                 </div>
@@ -85,26 +92,27 @@
                             <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
                         </div>
                     </form>
+                    <button type="submit" class="btn btn-default" id="submitSearchForm">Submit</button>
                 </div>
                 <div class="tab-pane" id="return">
                     <form role="form">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="originCity" placeholder="Origin City">
+                            <input type="text" class="form-control" id="originCity2" placeholder="Origin City">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="destinationCity" placeholder="DestinationCity">
+                            <input type="text" class="form-control" id="destinationCity2" placeholder="DestinationCity">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
+                            <input type="text" class="form-control" id="departureDate2" placeholder="Departure Date">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="returnDate" placeholder="Return Date">
+                            <input type="text" class="form-control" id="returnDate2" placeholder="Return Date">
                         </div>
                     </form>
-
+                    <button type="submit" class="btn btn-default" id="submitSearchForm2">Submit</button>
                 </div>
             </div>
-            <button type="submit" class="btn btn-default" id="submitSearchForm">Submit</button>
+
 
 
             <br><br>

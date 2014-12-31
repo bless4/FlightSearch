@@ -38,7 +38,7 @@ var flightSearchJSON = [
 
   // pune delhi 26 return of above three flight
   {
-    FlightNo : "AI-202",
+    FlightNo : "AI-202R",
     Price : 9000,
     OriginCity : "Pune",
     DestinationCity : "Delhi",
@@ -48,7 +48,7 @@ var flightSearchJSON = [
     ArriveTime : "5 PM"
   },
   {
-    FlightNo : "AI-203",
+    FlightNo : "AI-203R",
     Price : 8000,
     OriginCity : "Pune",
     DestinationCity : "Delhi",
@@ -58,7 +58,7 @@ var flightSearchJSON = [
     ArriveTime : "3 PM"
   },
   {
-    FlightNo : "AI-204",
+    FlightNo : "AI-204R",
     Price : 7000,
     OriginCity : "Pune",
     DestinationCity : "Delhi",
@@ -139,6 +139,10 @@ $( document ).ready(function () {
     getFormData();
   });
 
+  $("#submitSearchForm2").click(function() {
+    getFormDataForTwoWay();
+  });
+
   $("#tabs").tab();
   $("#refineSearchResult").slider().on("slide", function(obj) {
 
@@ -152,17 +156,27 @@ $( document ).ready(function () {
   //alert(value);
 });
 
+function getFormDataForTwoWay() {
+  var originCity2 = $("#originCity2").val();
+  var destinationCity2 = $("#destinationCity2").val();
+  var departureDate2 = $("#departureDate2").val();
+  var returnDate2 = $("#returnDate2").val();
+
+  var goingData = getFlightInformation(originCity2, destinationCity2, departureDate2);
+  var returnData = getFlightInformation(destinationCity2, originCity2, returnDate2);
+}
+
 function getDataAccordingToSlider(value) {
   var originCity = $("#originCity").val();
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
   var minPrice = value[0];
   var maxPrice = value[1];
-  refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
+  var data = refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
+  myFunction(data);
 }
 
 function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
-
   var data = flightSearchJSON.filter(function (el) {
     return el.OriginCity === originCity  &&
       el.DestinationCity === destinationCity  &&
@@ -171,28 +185,24 @@ function refineSearchResult(originCity, destinationCity, departureDate, minPrice
       el.Price < maxPrice
   });
   console.log(data);
-
-  myFunction(data);
-
+  return data;
 }
 
 function getFormData() {
   var originCity = $("#originCity").val();
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
-  getFlightInformation(originCity, destinationCity, departureDate);
+  var data = getFlightInformation(originCity, destinationCity, departureDate);
+  myFunction(data);
 }
 
 function getFlightInformation(originCity, destinationCity, departureDate) {
-
   var data = flightSearchJSON.filter(function (el) {
     return el.OriginCity === originCity  &&
            el.DestinationCity === destinationCity  &&
            el.DepartureDate === departureDate
   });
-  console.log(data);
-
-  myFunction(data);
+  return data;
 }
 
 function myFunction(data) {

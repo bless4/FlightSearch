@@ -22,21 +22,13 @@ $(document).ready(function() {
   $("#tabs").tab();
 
   $("#refineSearchResultForOneWayId").slider().on("slide", function(obj) {
-
     getDataAccordingToSliderOneWay(obj.value);
-
-
   });
+
   $("#refineSearchResultForTwoWayId").slider().on("slide", function(obj) {
-
-    console.log(obj.value);
-
     getDataAccordingToSliderTwoWay(obj.value);
-
   });
-  //var value = mySlider.slider('getValue');
 
-  //alert(value);
 });
 
 function getDataForTwoWay() {
@@ -91,7 +83,6 @@ function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDat
       el.totalPrice < maxPrice
   });
   return data;
-
 }
 
 function refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice) {

@@ -3,124 +3,7 @@
  */
 
 
-var flightSearchJSON = [
-  // delhi pune 25 flight
-  {
-    GFlightNo : "AI-202",
-    totalPrice : 9000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "12 AM",
-    GArriveTime : "5 PM"
-  },
-  {
-    GFlightNo : "AI-203",
-    totalPrice : 8000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "10 AM",
-    GArriveTime : "4 PM"
-  },
-  {
-    GFlightNo : "AI-204",
-    totalPrice : 7000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "1 PM",
-    GArriveTime : "8 PM"
-  },
-  {
-    GFlightNo : "AI-202",
-    totalPrice : 9000,
-    GOriginCity : "Pune",
-    GDestinationCity : "Delhi",
-    GDepartureDate : "26/12/2014",
-    GArrivalDate : "26/12/2014",
-    GDepartTime : "11 AM",
-    GArriveTime : "4 PM"
-  },
-  {
-    GFlightNo : "AI-203",
-    totalPrice : 8000,
-    GOriginCity : "Pune",
-    GDestinationCity : "Delhi",
-    GDepartureDate : "26/12/2014",
-    GArrivalDate : "26/12/2014",
-    GDepartTime : "1 PM",
-    GArriveTime : "7 PM"
-  },
-  {
-    GFlightNo : "AI-204",
-    totalPrice : 7000,
-    GOriginCity : "Pune",
-    GDestinationCity : "Delhi",
-    GDepartureDate : "26/12/2014",
-    GArrivalDate : "26/12/2014",
-    GDepartTime : "3 PM",
-    GArriveTime : "10 PM"
-  }
-
-]
-
-var flightSearchJSONTwoWay = [
-  {
-    GFlightNo : "AI-202",
-    totalPrice : 17000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "12 AM",
-    GArriveTime : "5 PM",
-
-    RFlightNo : "AI-203",
-    RDepartureDate : "26/12/2014",
-    RArrivalDate : "26/12/2014",
-    RDepartTime : "1 AM",
-    RArriveTime : "7 PM"
-  },
-  {
-    GFlightNo : "AI-203",
-    totalPrice : 15000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "10 PM",
-    GArriveTime : "4 PM",
-
-    RFlightNo : "AI-204",
-    RDepartureDate : "26/12/2014",
-    RArrivalDate : "26/12/2014",
-    RDepartTime : "3 PM",
-    RArriveTime : "10 PM"
-  },
-  {
-    GFlightNo : "AI-204",
-    totalPrice : 16000,
-    GOriginCity : "Delhi",
-    GDestinationCity : "Pune",
-    GDepartureDate : "25/12/2014",
-    GArrivalDate : "25/12/2014",
-    GDepartTime : "1 PM",
-    GArriveTime : "8 PM",
-
-    RFlightNo : "AI-202",
-    RDepartureDate : "26/12/2014",
-    RArrivalDate : "26/12/2014",
-    RDepartTime : "11 AM",
-    RArriveTime : "4 PM"
-  }
-]
-
-
-$( document ).ready(function () {
+$(document).ready(function() {
 
   $("#submitSearchForm").click(function() {
     $("#flightInformation").html("");
@@ -173,9 +56,9 @@ function getFormDataForTwoWay() {
 
 function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {
 
-  var data = flightSearchJSONTwoWay.filter(function (el) {
-    return el.GOriginCity === originCity2  &&
-      el.GDestinationCity === destinationCity2  &&
+  var data = flightSearchJSONTwoWay.filter(function(el) {
+    return el.GOriginCity === originCity2 &&
+      el.GDestinationCity === destinationCity2 &&
       el.GDepartureDate === departureDate2 &&
       el.RDepartureDate === returnDate2
   });
@@ -206,9 +89,9 @@ function getDataAccordingToSliderTwoWay(value) {
 
 function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice) {
 
-  var data = flightSearchJSONTwoWay.filter(function (el) {
-    return el.GOriginCity === originCity2  &&
-      el.GDestinationCity === destinationCity2  &&
+  var data = flightSearchJSONTwoWay.filter(function(el) {
+    return el.GOriginCity === originCity2 &&
+      el.GDestinationCity === destinationCity2 &&
       el.GDepartureDate === departureDate2 &&
       el.RDepartureDate === returnDate2 &&
       el.totalPrice > minPrice &&
@@ -219,9 +102,9 @@ function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDat
 }
 
 function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
-  var data = flightSearchJSON.filter(function (el) {
-    return el.GOriginCity === originCity  &&
-      el.GDestinationCity === destinationCity  &&
+  var data = flightSearchJSON.filter(function(el) {
+    return el.GOriginCity === originCity &&
+      el.GDestinationCity === destinationCity &&
       el.GDepartureDate === departureDate &&
       el.totalPrice > minPrice &&
       el.totalPrice < maxPrice
@@ -239,17 +122,17 @@ function getFormData() {
 }
 
 function getFlightInformation(originCity, destinationCity, departureDate) {
-  var data = flightSearchJSON.filter(function (el) {
-    return el.GOriginCity === originCity  &&
-           el.GDestinationCity === destinationCity  &&
-           el.GDepartureDate === departureDate
+  var data = flightSearchJSON.filter(function(el) {
+    return el.GOriginCity === originCity &&
+      el.GDestinationCity === destinationCity &&
+      el.GDepartureDate === departureDate
   });
   return data;
 }
 
 function myFunction(data) {
   var tempHTML = _.template($("#flightInfoTemplate").html())({
-    obj : data
+    obj: data
   });
   $("#flightInformation").html(tempHTML);
 }
@@ -257,7 +140,7 @@ function myFunction(data) {
 
 function myFunctiononeway(data) {
   var tempHTML = _.template($("#flightInfoTemplateOneWay").html())({
-    obj : data
+    obj: data
   });
   $("#flightInformationOneWay").html(tempHTML);
 }

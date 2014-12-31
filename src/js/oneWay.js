@@ -9,6 +9,8 @@ function getDataForOneWay() {
   var departureDate = $("#departureDate").val();
   var data = getFlightInformationForOneWay(originCity, destinationCity, departureDate);
   underscoreTemplateForOneWay(data);
+  $("#fromId").text("");
+  $("#fromId").text(originCity + " > " + destinationCity);
 }
 
 function getFlightInformationForOneWay(originCity, destinationCity, departureDate) {

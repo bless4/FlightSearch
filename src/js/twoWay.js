@@ -38,6 +38,8 @@ function getDataForTwoWay() {
   var returnDate2 = $("#returnDate2").val();
   var twoWayData = getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2);
   underscoreTemplateForTwoWay(twoWayData);
+  $("#fromId").text("");
+  $("#fromId").text(originCity2 + " > " + destinationCity2 + " > " + originCity2);
 }
 
 function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {

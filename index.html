@@ -10,6 +10,9 @@
     <script src="src/external/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="src/external/underscore/underscore-min.js"></script>
     <script src="src/external/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <link href="src/external/bootstrap-datepicker/css/datepicker3.css" type="text/css" rel="stylesheet"/>
+    <script src="src/external/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
 
     <script type="text/html" id="flightInfoTemplate">
 
@@ -102,7 +105,7 @@
                             <input type="text" class="form-control" id="destinationCity" placeholder="DestinationCity">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="departureDate" placeholder="Departure Date">
+                            <input type="text" class="form-control applyDatePicker" id="departureDate" placeholder="Departure Date">
                         </div>
                     </form>
                     <button type="submit" class="btn btn-primary" id="submitForOneWay">Submit</button>
@@ -116,10 +119,10 @@
                             <input type="text" class="form-control" id="destinationCity2" placeholder="DestinationCity">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="departureDate2" placeholder="Departure Date">
+                            <input type="text" class="form-control applyDatePicker" id="departureDate2" placeholder="Departure Date">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="returnDate2" placeholder="Return Date">
+                            <input type="text" class="form-control applyDatePicker" id="returnDate2" placeholder="Return Date">
                         </div>
                     </form>
                     <button type="submit" class="btn btn-primary" id="submitForTwoWay">Submit</button>

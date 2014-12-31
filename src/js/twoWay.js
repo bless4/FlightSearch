@@ -7,6 +7,11 @@ $(document).ready(function() {
 
   $("#tabs").tab();
 
+  $('.applyDatePicker').datepicker({
+    format: 'dd/mm/yyyy',
+    autoclose: true
+  });
+
   $("#submitForOneWay").click(function() {
     $("#flightInformationTwoWay").html("");
     $("#refineSearchResultTwoWay").hide();

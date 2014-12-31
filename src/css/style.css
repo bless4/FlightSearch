@@ -1,0 +1,53 @@
+#refineSearchResultOneWay, #refineSearchResultTwoWay {
+    display:none;
+    padding:10%;
+}
+
+#travelInfoBlock {
+    border:1px solid black;
+    padding:4%;
+    margin-left:15px;
+    margin-right:15px;
+    padding-bottom: 45px;
+    display: none;
+    background-color: lightgray
+}
+
+#travelPath {
+    font-size: x-large
+}
+
+.header {
+    background-color: lightgray;
+    padding: 1%;
+    width: 74%;
+}
+
+.content {
+    border: 1px solid black;
+    background-color: whitesmoke
+}
+
+.totalPrice {
+    padding-left: 5%
+}
+
+.goingContent {
+    padding: 4%;
+}
+
+.returnContent {
+    padding: 4%;
+}
+
+.bookFlightButton {
+    padding: 7%
+}
+
+body {
+    background-color: seagreen;
+}
+
+.searchForm {
+    background-color: lightgray;
+}

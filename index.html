@@ -11,36 +11,31 @@
     <script src="src/external/underscore/underscore-min.js"></script>
     <script src="src/external/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
     <link href="src/external/bootstrap-datepicker/css/datepicker3.css" type="text/css" rel="stylesheet"/>
+    <link href="src/css/style.css" type="text/css" rel="stylesheet"/>
     <script src="src/external/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
 
     <script type="text/html" id="flightInfoTemplate">
 
         <% _.each(obj , function(item ,key,list) { %>
 
-        <div style="border: 1px solid black; background-color: whitesmoke">
-
+        <div class="content">
             <div class="row">
-                <h3 style="padding-left: 5%">Price <%= item.totalPrice%></h3>
+                <h3 class="totalPrice">Price <%= item.totalPrice%></h3>
             </div>
             <div class="row">
-                <div style="padding: 4%"  class="col-sm-4">
+                <div class="col-sm-4 goingContent">
                     <div>Flight No : <%= item.GFlightNo %></div>
                     <div>From <%= item.GOriginCity %> To <%= item.GDestinationCity %></div>
                     <div>Departure Time :<%= item.GDepartTime %></div>
                     <div>Arrive Time : <%= item.GArriveTime %></div>
                 </div>
-
-
-                <div style="padding: 4%" class="col-sm-4">
+                <div class="col-sm-4 returnContent">
                     <div>Flight No : <%= item.RFlightNo %></div>
                     <div>From <%= item.GDestinationCity %> To <%= item.GOriginCity %></div>
                     <div>Departure Time :<%= item.RDepartTime %></div>
                     <div>Arrive Time : <%= item.RArriveTime %></div>
                 </div>
-
-
-                <div style="padding: 7%" class="col-sm-4">
+                <div class="col-sm-4 bookFlightButton">
                     <button class="btn btn-primary">Book This Flight</button>
                 </div>
             </div>
@@ -50,25 +45,22 @@
 
     </script>
 
-
     <script type="text/html" id="flightInfoTemplateOneWay">
 
         <% _.each(obj , function(item ,key,list) { %>
 
-        <div style="border: 1px solid black; background-color: whitesmoke">
-
+        <div class="content">
             <div class="row">
-                <h3 style="padding-left: 5%">Price <%= item.totalPrice%></h3>
+                <h3 class="totalPrice">Price <%= item.totalPrice%></h3>
             </div>
             <div class="row">
-                <div style="padding: 4%"  class="col-sm-4">
+                <div class="col-sm-4 goingContent">
                     <div>Flight No : <%= item.GFlightNo %></div>
                     <div>From <%= item.GOriginCity %> To <%= item.GDestinationCity %></div>
                     <div>Departure Time :<%= item.GDepartTime %></div>
                     <div>Arrive Time : <%= item.GArriveTime %></div>
                 </div>
-
-                <div style="padding: 7%" class="col-sm-4">
+                <div class="col-sm-4 bookFlightButton">
                     <button class="btn btn-primary">Book This Flight</button>
                 </div>
             </div>
@@ -79,24 +71,18 @@
     </script>
 
 </head>
-<body style="background-color: seagreen">
-
-
+<body>
 
 <div class="container">
-
     <div class="row">
-        <h1 style="background-color: lightgray;padding: 1%;width: 74%;">Flight Search</h1>
+        <h1 class="header">Flight Search</h1>
     </div>
     <div class="row">
-
-        <div  class="col-sm-3" style="background-color: lightgray">
-
+        <div  class="col-sm-3 searchForm">
             <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                 <li class="active"><a href="#oneWay" data-toggle="tab">One Way</a></li>
                 <li><a href="#return" data-toggle="tab">Return</a></li>
             </ul>
-
             <div id="my-tab-content" class="tab-content">
                 <div class="tab-pane active" id="oneWay">
                     <form role="form">
@@ -130,66 +116,37 @@
                     <button type="submit" class="btn btn-primary" id="submitForTwoWay">Submit</button>
                 </div>
             </div>
-
-
-
             <br><br>
-            <div id="refineSearchResultOneWay" style="display:none; padding:10%;">
+            <div id="refineSearchResultOneWay">
                 <label>Refine Flight Search</label>
                 <input id="refineSearchResultForOneWayId" type="text" class="span2" value="" data-slider-min="0" data-slider-max="25000" data-slider-step="100" data-slider-value="[1000,9000]"/>
             </div>
-
-            <div id="refineSearchResultTwoWay" style="display:none; padding:10%;">
+            <div id="refineSearchResultTwoWay">
                 <label>Refine Flight Search</label>
                 <input id="refineSearchResultForTwoWayId" type="text" class="span2" value="" data-slider-min="0" data-slider-max="25000" data-slider-step="100" data-slider-value="[1000,20000]"/>
             </div>
-
         </div>
-
         <div class="col-sm-6">
-
-
             <div class="row">
-                <div id="travelInfoBlock" style="border:1px solid black; padding:4%; margin-left:15px; margin-right:15px; padding-bottom: 45px; display: none; background-color: lightgray">
-
+                <div id="travelInfoBlock">
                     <div class="col-sm-7">
-
-                        <div id="travelPath" style="font-size: x-large"></div>
-
+                        <div id="travelPath"></div>
                     </div>
-
                     <div class="col-sm-5">
-
-
                         <div>
-
                             <div class="pull-right" id="departDate"></div>
                         </div>
-
                         <div>
-
                             <div class="pull-right" id="returnDate"></div>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
-
-
             <div id="flightInformationOneWay"></div>
             <div id="flightInformationTwoWay"></div>
-
         </div>
-
-
     </div>
-
 </div>
-
-
-
 
 <script src="src/js/twoWay.js"></script>
 <script src="src/js/oneWay.js"></script>

@@ -20,14 +20,14 @@ $(document).ready(function() {
   });
 
   $("#tabs").tab();
-  $("#refineSearchResult").slider().on("slide", function(obj) {
 
-    console.log(obj.value);
+  $("#refineSearchResultForOneWayId").slider().on("slide", function(obj) {
 
-    getDataAccordingToSlider(obj.value);
+    getDataAccordingToSliderOneWay(obj.value);
+
 
   });
-  $("#refineSearchResultTwoWayInput").slider().on("slide", function(obj) {
+  $("#refineSearchResultForTwoWayId").slider().on("slide", function(obj) {
 
     console.log(obj.value);
 
@@ -59,13 +59,13 @@ function getFlightInformationForTwoWay(originCity2, destinationCity2, departureD
   return data;
 }
 
-function getDataAccordingToSlider(value) {
+function getDataAccordingToSliderOneWay(value) {
   var originCity = $("#originCity").val();
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
   var minPrice = value[0];
   var maxPrice = value[1];
-  var data = refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
+  var data = refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice);
   underscoreTemplateForOneWay(data);
 }
 
@@ -94,7 +94,7 @@ function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDat
 
 }
 
-function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
+function refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice) {
   var data = flightSearchJSON.filter(function(el) {
     return el.GOriginCity === originCity &&
       el.GDestinationCity === destinationCity &&

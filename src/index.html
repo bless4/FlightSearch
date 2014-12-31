@@ -16,46 +16,59 @@
         <% _.each(obj , function(item ,key,list) { %>
 
         <div style="border: 1px solid black">
-
-
             <% console.log(obj) %>
-
             <div class="row">
-                <h3 style="padding-left: 5%">Price <%= item.Price %></h3>
+                <h3 style="padding-left: 5%">Price <%= item.totalPrice%></h3>
             </div>
-
             <div class="row">
-
                 <div style="padding: 4%"  class="col-sm-4">
-
-                    <div>Flight No : <%= item.FlightNo %></div>
-                    <div>From <%= item.OriginCity %> To <%= item.DestinationCity %></div>
-                    <div>Departure Time :<%= item.DepartTime %></div>
-                    <div>Arrive Time : <%= item.ArriveTime %></div>
-
-
+                    <div>Flight No : <%= item.GFlightNo %></div>
+                    <div>From <%= item.GOriginCity %> To <%= item.GDestinationCity %></div>
+                    <div>Departure Time :<%= item.GDepartTime %></div>
+                    <div>Arrive Time : <%= item.GArriveTime %></div>
                 </div>
 
+
                 <div style="padding: 4%" class="col-sm-4">
+                    <div>Flight No : <%= item.RFlightNo %></div>
+                    <div>From <%= item.GDestinationCity %> To <%= item.GOriginCity %></div>
+                    <div>Departure Time :<%= item.RDepartTime %></div>
+                    <div>Arrive Time : <%= item.RArriveTime %></div>
+                </div>
 
 
-                    <div>Flight No : <%= item.FlightNo %></div>
-                    <div>From <%= item.OriginCity %> To <%= item.DestinationCity %></div>
-                    <div>Departure Time :<%= item.DepartTime %></div>
-                    <div>Arrive Time : <%= item.ArriveTime %></div>
+                <div  class="col-sm-4">
+                    <button class="btn btn-primary">Book This Flight</button>
+                </div>
+            </div>
+        </div>
+
+        <% }); %>
+
+    </script>
 
 
+    <script type="text/html" id="flightInfoTemplateOneWay">
+
+        <% _.each(obj , function(item ,key,list) { %>
+
+        <div style="border: 1px solid black">
+            <% console.log(obj) %>
+            <div class="row">
+                <h3 style="padding-left: 5%">Price <%= item.totalPrice%></h3>
+            </div>
+            <div class="row">
+                <div style="padding: 4%"  class="col-sm-4">
+                    <div>Flight No : <%= item.GFlightNo %></div>
+                    <div>From <%= item.GOriginCity %> To <%= item.GDestinationCity %></div>
+                    <div>Departure Time :<%= item.GDepartTime %></div>
+                    <div>Arrive Time : <%= item.GArriveTime %></div>
                 </div>
 
                 <div  class="col-sm-4">
-
                     <button class="btn btn-primary">Book This Flight</button>
-
                 </div>
-
-
             </div>
-
         </div>
 
         <% }); %>
@@ -126,6 +139,7 @@
         <div class="col-sm-6">
 
             <div id="flightInformation"></div>
+            <div id="flightInformationOneWay"></div>
 
         </div>
 

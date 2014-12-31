@@ -6,140 +6,129 @@
 var flightSearchJSON = [
   // delhi pune 25 flight
   {
-    FlightNo : "AI-202",
-    Price : 9000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "25/12/2014",
-    ArrivalDate : "25/12/2014",
-    DepartTime : "12 PM",
-    ArriveTime : "5 PM"
+    GFlightNo : "AI-202",
+    totalPrice : 9000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "12 AM",
+    GArriveTime : "5 PM"
   },
   {
-    FlightNo : "AI-203",
-    Price : 8000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "25/12/2014",
-    ArrivalDate : "25/12/2014",
-    DepartTime : "10 AM",
-    ArriveTime : "3 PM"
+    GFlightNo : "AI-203",
+    totalPrice : 8000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "10 AM",
+    GArriveTime : "4 PM"
   },
   {
-    FlightNo : "AI-204",
-    Price : 7000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "25/12/2014",
-    ArrivalDate : "25/12/2014",
-    DepartTime : "1 PM",
-    ArriveTime : "6 PM"
+    GFlightNo : "AI-204",
+    totlaPrice : 7000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "1 PM",
+    GArriveTime : "8 PM"
   },
+  {
+    GFlightNo : "AI-202",
+    totalPrice : 9000,
+    GOriginCity : "Pune",
+    GDestinationCity : "Delhi",
+    GDepartureDate : "26/12/2014",
+    GArrivalDate : "26/12/2014",
+    GDepartTime : "11 AM",
+    GArriveTime : "4 PM"
+  },
+  {
+    GFlightNo : "AI-203",
+    totalPrice : 8000,
+    GOriginCity : "Pune",
+    GDestinationCity : "Delhi",
+    GDepartureDate : "26/12/2014",
+    GArrivalDate : "26/12/2014",
+    GDepartTime : "1 PM",
+    GArriveTime : "7 PM"
+  },
+  {
+    GFlightNo : "AI-204",
+    totalPrice : 7000,
+    GOriginCity : "Pune",
+    GDestinationCity : "Delhi",
+    GDepartureDate : "26/12/2014",
+    GArrivalDate : "26/12/2014",
+    GDepartTime : "3 PM",
+    GArriveTime : "10 PM"
+  }
 
-  // pune delhi 26 return of above three flight
-  {
-    FlightNo : "AI-202R",
-    Price : 9000,
-    OriginCity : "Pune",
-    DestinationCity : "Delhi",
-    DepartureDate : "26/12/2014",
-    ArrivalDate : "26/12/2014",
-    DepartTime : "12 PM",
-    ArriveTime : "5 PM"
-  },
-  {
-    FlightNo : "AI-203R",
-    Price : 8000,
-    OriginCity : "Pune",
-    DestinationCity : "Delhi",
-    DepartureDate : "26/12/2014",
-    ArrivalDate : "26/12/2014",
-    DepartTime : "10 AM",
-    ArriveTime : "3 PM"
-  },
-  {
-    FlightNo : "AI-204R",
-    Price : 7000,
-    OriginCity : "Pune",
-    DestinationCity : "Delhi",
-    DepartureDate : "26/12/2014",
-    ArrivalDate : "26/12/2014",
-    DepartTime : "1 PM",
-    ArriveTime : "6 PM"
-  },
+]
 
-  // flight going again to pune on 27
+var flightSearchJSONTwoWay = [
   {
-    FlightNo : "AI-202",
-    Price : 9000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "27/12/2014",
-    ArrivalDate : "27/12/2014",
-    DepartTime : "12 PM",
-    ArriveTime : "5 PM"
-  },
-  {
-    FlightNo : "AI-203",
-    Price : 8000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "27/12/2014",
-    ArrivalDate : "27/12/2014",
-    DepartTime : "10 AM",
-    ArriveTime : "3 PM"
-  },
-  {
-    FlightNo : "AI-204",
-    Price : 7000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "27/12/2014",
-    ArrivalDate : "27/12/2014",
-    DepartTime : "1 PM",
-    ArriveTime : "6 PM"
-  },
+    GFlightNo : "AI-202",
+    totalPrice : 17000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "12 AM",
+    GArriveTime : "5 PM",
 
-  // flight comming from pune 28
-  {
-    FlightNo : "AI-202",
-    Price : 9000,
-    OriginCity : "Pune",
-    DestinationCity : "Delhi",
-    DepartureDate : "28/12/2014",
-    ArrivalDate : "28/12/2014",
-    DepartTime : "12 PM",
-    ArriveTime : "5 PM"
+    RFlightNo : "AI-203",
+    RDepartureDate : "26/12/2014",
+    RArrivalDate : "26/12/2014",
+    RDepartTime : "1 AM",
+    RArriveTime : "7 PM"
   },
   {
-    FlightNo : "AI-203",
-    Price : 8000,
-    OriginCity : "Pune",
-    DestinationCity : "Delhi",
-    DepartureDate : "28/12/2014",
-    ArrivalDate : "28/12/2014",
-    DepartTime : "10 AM",
-    ArriveTime : "3 PM"
+    GFlightNo : "AI-203",
+    totalPrice : 15000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "10 PM",
+    GArriveTime : "4 PM",
+
+    RFlightNo : "AI-204",
+    RDepartureDate : "26/12/2014",
+    RArrivalDate : "26/12/2014",
+    RDepartTime : "3 PM",
+    RArriveTime : "10 PM"
   },
   {
-    FlightNo : "AI-204",
-    Price : 7000,
-    OriginCity : "Delhi",
-    DestinationCity : "Pune",
-    DepartureDate : "28/12/2014",
-    ArrivalDate : "28/12/2014",
-    DepartTime : "1 PM",
-    ArriveTime : "6 PM"
+    GFlightNo : "AI-204",
+    totalPrice : 16000,
+    GOriginCity : "Delhi",
+    GDestinationCity : "Pune",
+    GDepartureDate : "25/12/2014",
+    GArrivalDate : "25/12/2014",
+    GDepartTime : "1 PM",
+    GArriveTime : "8 PM",
+
+    RFlightNo : "AI-202",
+    RDepartureDate : "26/12/2014",
+    RArrivalDate : "26/12/2014",
+    RDepartTime : "11 AM",
+    RArriveTime : "4 PM"
   }
 ]
+
 
 $( document ).ready(function () {
 
   $("#submitSearchForm").click(function() {
+    $("#flightInformation").html("");
     getFormData();
   });
 
   $("#submitSearchForm2").click(function() {
+    $("#flightInformationOneWay").html("");
     getFormDataForTwoWay();
   });
 
@@ -162,8 +151,21 @@ function getFormDataForTwoWay() {
   var departureDate2 = $("#departureDate2").val();
   var returnDate2 = $("#returnDate2").val();
 
-  var goingData = getFlightInformation(originCity2, destinationCity2, departureDate2);
-  var returnData = getFlightInformation(destinationCity2, originCity2, returnDate2);
+  var twoWayData = getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2);
+
+  myFunction(twoWayData);
+
+}
+
+function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {
+
+  var data = flightSearchJSONTwoWay.filter(function (el) {
+    return el.GOriginCity === originCity2  &&
+      el.GDestinationCity === destinationCity2  &&
+      el.GDepartureDate === departureDate2 &&
+      el.RDepartureDate === returnDate2
+  });
+  return data;
 }
 
 function getDataAccordingToSlider(value) {
@@ -173,7 +175,7 @@ function getDataAccordingToSlider(value) {
   var minPrice = value[0];
   var maxPrice = value[1];
   var data = refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
-  myFunction(data);
+  myFunctiononeway(data);
 }
 
 function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
@@ -193,24 +195,29 @@ function getFormData() {
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
   var data = getFlightInformation(originCity, destinationCity, departureDate);
-  myFunction(data);
+  myFunctiononeway(data);
 }
 
 function getFlightInformation(originCity, destinationCity, departureDate) {
   var data = flightSearchJSON.filter(function (el) {
-    return el.OriginCity === originCity  &&
-           el.DestinationCity === destinationCity  &&
-           el.DepartureDate === departureDate
+    return el.GOriginCity === originCity  &&
+           el.GDestinationCity === destinationCity  &&
+           el.GDepartureDate === departureDate
   });
   return data;
 }
 
 function myFunction(data) {
-
   var tempHTML = _.template($("#flightInfoTemplate").html())({
     obj : data
   });
-
   $("#flightInformation").html(tempHTML);
+}
 
+
+function myFunctiononeway(data) {
+  var tempHTML = _.template($("#flightInfoTemplateOneWay").html())({
+    obj : data
+  });
+  $("#flightInformationOneWay").html(tempHTML);
 }

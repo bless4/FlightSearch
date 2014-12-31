@@ -5,6 +5,8 @@
 
 $(document).ready(function() {
 
+  $("#tabs").tab();
+
   $("#submitForOneWay").click(function() {
     $("#flightInformation").html("");
     $("#refineSearchResultTwoWay").hide();
@@ -18,8 +20,6 @@ $(document).ready(function() {
     $("#refineSearchResultOneWay").hide();
     getDataForTwoWay();
   });
-
-  $("#tabs").tab();
 
   $("#refineSearchResultForOneWayId").slider().on("slide", function(obj) {
     getDataAccordingToSliderOneWay(obj.value);
@@ -51,16 +51,6 @@ function getFlightInformationForTwoWay(originCity2, destinationCity2, departureD
   return data;
 }
 
-function getDataAccordingToSliderOneWay(value) {
-  var originCity = $("#originCity").val();
-  var destinationCity = $("#destinationCity").val();
-  var departureDate = $("#departureDate").val();
-  var minPrice = value[0];
-  var maxPrice = value[1];
-  var data = refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice);
-  underscoreTemplateForOneWay(data);
-}
-
 function getDataAccordingToSliderTwoWay(value) {
   var originCity2 = $("#originCity2").val();
   var destinationCity2 = $("#destinationCity2").val();
@@ -85,46 +75,9 @@ function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDat
   return data;
 }
 
-function refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice) {
-  var data = flightSearchJSON.filter(function(el) {
-    return el.GOriginCity === originCity &&
-      el.GDestinationCity === destinationCity &&
-      el.GDepartureDate === departureDate &&
-      el.totalPrice > minPrice &&
-      el.totalPrice < maxPrice
-  });
-  console.log(data);
-  return data;
-}
-
-function getDataForOneWay() {
-  var originCity = $("#originCity").val();
-  var destinationCity = $("#destinationCity").val();
-  var departureDate = $("#departureDate").val();
-  var data = getFlightInformationForOneWay(originCity, destinationCity, departureDate);
-  underscoreTemplateForOneWay(data);
-}
-
-function getFlightInformationForOneWay(originCity, destinationCity, departureDate) {
-  var data = flightSearchJSON.filter(function(el) {
-    return el.GOriginCity === originCity &&
-      el.GDestinationCity === destinationCity &&
-      el.GDepartureDate === departureDate
-  });
-  return data;
-}
-
 function underscoreTemplateForTwoWay(data) {
   var tempHTML = _.template($("#flightInfoTemplate").html())({
     obj: data
   });
   $("#flightInformation").html(tempHTML);
-}
-
-
-function underscoreTemplateForOneWay(data) {
-  var tempHTML = _.template($("#flightInfoTemplateOneWay").html())({
-    obj: data
-  });
-  $("#flightInformationOneWay").html(tempHTML);
 }

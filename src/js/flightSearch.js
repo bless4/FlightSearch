@@ -16,7 +16,7 @@ $(document).ready(function() {
     $("#flightInformationOneWay").html("");
     $("#refineSearchResultTwoWay").show();
     $("#refineSearchResultOneWay").hide();
-    getFormDataForTwoWay();
+    getDataForTwoWay();
   });
 
   $("#tabs").tab();
@@ -39,16 +39,13 @@ $(document).ready(function() {
   //alert(value);
 });
 
-function getFormDataForTwoWay() {
+function getDataForTwoWay() {
   var originCity2 = $("#originCity2").val();
   var destinationCity2 = $("#destinationCity2").val();
   var departureDate2 = $("#departureDate2").val();
   var returnDate2 = $("#returnDate2").val();
-
   var twoWayData = getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2);
-
-  myFunction(twoWayData);
-
+  underscoreTemplateForTwoWay(twoWayData);
 }
 
 function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {
@@ -69,7 +66,7 @@ function getDataAccordingToSlider(value) {
   var minPrice = value[0];
   var maxPrice = value[1];
   var data = refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice);
-  myFunctiononeway(data);
+  underscoreTemplateForOneWay(data);
 }
 
 function getDataAccordingToSliderTwoWay(value) {
@@ -80,8 +77,7 @@ function getDataAccordingToSliderTwoWay(value) {
   var minPrice = value[0];
   var maxPrice = value[1];
   var data = refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice);
-  myFunction(data);
-
+  underscoreTemplateForTwoWay(data);
 }
 
 function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice) {
@@ -115,7 +111,7 @@ function getDataForOneWay() {
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
   var data = getFlightInformationForOneWay(originCity, destinationCity, departureDate);
-  myFunctiononeway(data);
+  underscoreTemplateForOneWay(data);
 }
 
 function getFlightInformationForOneWay(originCity, destinationCity, departureDate) {
@@ -127,7 +123,7 @@ function getFlightInformationForOneWay(originCity, destinationCity, departureDat
   return data;
 }
 
-function myFunction(data) {
+function underscoreTemplateForTwoWay(data) {
   var tempHTML = _.template($("#flightInfoTemplate").html())({
     obj: data
   });
@@ -135,7 +131,7 @@ function myFunction(data) {
 }
 
 
-function myFunctiononeway(data) {
+function underscoreTemplateForOneWay(data) {
   var tempHTML = _.template($("#flightInfoTemplateOneWay").html())({
     obj: data
   });

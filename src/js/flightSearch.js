@@ -27,7 +27,7 @@ var flightSearchJSON = [
   },
   {
     GFlightNo : "AI-204",
-    totlaPrice : 7000,
+    totalPrice : 7000,
     GOriginCity : "Delhi",
     GDestinationCity : "Pune",
     GDepartureDate : "25/12/2014",
@@ -124,11 +124,18 @@ $( document ).ready(function () {
 
   $("#submitSearchForm").click(function() {
     $("#flightInformation").html("");
+    $("#refineSearchResultTwoWay").hide();
+    $("#refineSearchResultOneWay").show();
+
+
     getFormData();
   });
 
   $("#submitSearchForm2").click(function() {
     $("#flightInformationOneWay").html("");
+    $("#refineSearchResultTwoWay").show();
+    $("#refineSearchResultOneWay").hide();
+
     getFormDataForTwoWay();
   });
 
@@ -138,6 +145,13 @@ $( document ).ready(function () {
     console.log(obj.value);
 
     getDataAccordingToSlider(obj.value);
+
+  });
+  $("#refineSearchResultTwoWayInput").slider().on("slide", function(obj) {
+
+    console.log(obj.value);
+
+    getDataAccordingToSliderTwoWay(obj.value);
 
   });
   //var value = mySlider.slider('getValue');
@@ -178,13 +192,39 @@ function getDataAccordingToSlider(value) {
   myFunctiononeway(data);
 }
 
+function getDataAccordingToSliderTwoWay(value) {
+  var originCity2 = $("#originCity2").val();
+  var destinationCity2 = $("#destinationCity2").val();
+  var departureDate2 = $("#departureDate2").val();
+  var returnDate2 = $("#returnDate2").val();
+  var minPrice = value[0];
+  var maxPrice = value[1];
+  var data = refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice);
+  myFunction(data);
+
+}
+
+function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice) {
+
+  var data = flightSearchJSONTwoWay.filter(function (el) {
+    return el.GOriginCity === originCity2  &&
+      el.GDestinationCity === destinationCity2  &&
+      el.GDepartureDate === departureDate2 &&
+      el.RDepartureDate === returnDate2 &&
+      el.totalPrice > minPrice &&
+      el.totalPrice < maxPrice
+  });
+  return data;
+
+}
+
 function refineSearchResult(originCity, destinationCity, departureDate, minPrice, maxPrice) {
   var data = flightSearchJSON.filter(function (el) {
-    return el.OriginCity === originCity  &&
-      el.DestinationCity === destinationCity  &&
-      el.DepartureDate === departureDate &&
-      el.Price > minPrice &&
-      el.Price < maxPrice
+    return el.GOriginCity === originCity  &&
+      el.GDestinationCity === destinationCity  &&
+      el.GDepartureDate === departureDate &&
+      el.totalPrice > minPrice &&
+      el.totalPrice < maxPrice
   });
   console.log(data);
   return data;

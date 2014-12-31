@@ -5,20 +5,17 @@
 
 $(document).ready(function() {
 
-  $("#submitSearchForm").click(function() {
+  $("#submitForOneWay").click(function() {
     $("#flightInformation").html("");
     $("#refineSearchResultTwoWay").hide();
     $("#refineSearchResultOneWay").show();
-
-
-    getFormData();
+    getDataForOneWay();
   });
 
-  $("#submitSearchForm2").click(function() {
+  $("#submitForTwoWay").click(function() {
     $("#flightInformationOneWay").html("");
     $("#refineSearchResultTwoWay").show();
     $("#refineSearchResultOneWay").hide();
-
     getFormDataForTwoWay();
   });
 
@@ -113,15 +110,15 @@ function refineSearchResult(originCity, destinationCity, departureDate, minPrice
   return data;
 }
 
-function getFormData() {
+function getDataForOneWay() {
   var originCity = $("#originCity").val();
   var destinationCity = $("#destinationCity").val();
   var departureDate = $("#departureDate").val();
-  var data = getFlightInformation(originCity, destinationCity, departureDate);
+  var data = getFlightInformationForOneWay(originCity, destinationCity, departureDate);
   myFunctiononeway(data);
 }
 
-function getFlightInformation(originCity, destinationCity, departureDate) {
+function getFlightInformationForOneWay(originCity, destinationCity, departureDate) {
   var data = flightSearchJSON.filter(function(el) {
     return el.GOriginCity === originCity &&
       el.GDestinationCity === destinationCity &&

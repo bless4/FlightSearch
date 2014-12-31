@@ -41,7 +41,6 @@ function getDataForTwoWay() {
 }
 
 function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {
-
   var data = flightSearchJSONTwoWay.filter(function(el) {
     return el.GOriginCity === originCity2 &&
       el.GDestinationCity === destinationCity2 &&
@@ -63,7 +62,6 @@ function getDataAccordingToSliderTwoWay(value) {
 }
 
 function refineSearchResultForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2, minPrice, maxPrice) {
-
   var data = flightSearchJSONTwoWay.filter(function(el) {
     return el.GOriginCity === originCity2 &&
       el.GDestinationCity === destinationCity2 &&

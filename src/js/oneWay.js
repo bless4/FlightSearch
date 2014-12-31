@@ -48,4 +48,3 @@ function refineSearchResultForOneWay(originCity, destinationCity, departureDate,
   console.log(data);
   return data;
 }
-

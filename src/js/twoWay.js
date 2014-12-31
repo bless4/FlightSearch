@@ -8,7 +8,7 @@ $(document).ready(function() {
   $("#tabs").tab();
 
   $("#submitForOneWay").click(function() {
-    $("#flightInformation").html("");
+    $("#flightInformationTwoWay").html("");
     $("#refineSearchResultTwoWay").hide();
     $("#refineSearchResultOneWay").show();
     getDataForOneWay();
@@ -77,5 +77,5 @@ function underscoreTemplateForTwoWay(data) {
   var tempHTML = _.template($("#flightInfoTemplate").html())({
     obj: data
   });
-  $("#flightInformation").html(tempHTML);
+  $("#flightInformationTwoWay").html(tempHTML);
 }

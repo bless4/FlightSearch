@@ -12,7 +12,7 @@ function getDataForOneWay() {
 }
 
 function getFlightInformationForOneWay(originCity, destinationCity, departureDate) {
-  var data = flightSearchJSON.filter(function(el) {
+  var data = flightSearchJSONOneWay .filter(function(el) {
     return el.GOriginCity === originCity &&
       el.GDestinationCity === destinationCity &&
       el.GDepartureDate === departureDate
@@ -38,7 +38,7 @@ function getDataAccordingToSliderOneWay(value) {
 }
 
 function refineSearchResultForOneWay(originCity, destinationCity, departureDate, minPrice, maxPrice) {
-  var data = flightSearchJSON.filter(function(el) {
+  var data = flightSearchJSONOneWay .filter(function(el) {
     return el.GOriginCity === originCity &&
       el.GDestinationCity === destinationCity &&
       el.GDepartureDate === departureDate &&

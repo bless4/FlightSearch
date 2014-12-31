@@ -3,7 +3,7 @@
  */
 
 
-var flightSearchJSON = [
+var flightSearchJSONOneWay = [
   {
     GFlightNo: "AI-202",
     totalPrice: 9000,

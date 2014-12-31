@@ -7,8 +7,13 @@ $(document).ready(function() {
 
   $("#tabs").tab();
 
+  $('.applyDatePicker').datepicker({
+    format: 'dd/mm/yyyy',
+    autoclose: true
+  });
+
   $("#submitForOneWay").click(function() {
-    $("#flightInformation").html("");
+    $("#flightInformationTwoWay").html("");
     $("#refineSearchResultTwoWay").hide();
     $("#refineSearchResultOneWay").show();
     getDataForOneWay();
@@ -38,6 +43,13 @@ function getDataForTwoWay() {
   var returnDate2 = $("#returnDate2").val();
   var twoWayData = getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2);
   underscoreTemplateForTwoWay(twoWayData);
+  $("#travelInfoBlock").show();
+  $("#travelPath").text("");
+  $("#travelPath").text(originCity2 + " > " + destinationCity2 + " > " + originCity2);
+  $("#departDate").text("");
+  $("#departDate").text("Depart Date :" + departureDate2);
+  $("#returnDate").text("");
+  $("#returnDate").text("Return Date :" + returnDate2);
 }
 
 function getFlightInformationForTwoWay(originCity2, destinationCity2, departureDate2, returnDate2) {
@@ -77,5 +89,5 @@ function underscoreTemplateForTwoWay(data) {
   var tempHTML = _.template($("#flightInfoTemplate").html())({
     obj: data
   });
-  $("#flightInformation").html(tempHTML);
+  $("#flightInformationTwoWay").html(tempHTML);
 }
